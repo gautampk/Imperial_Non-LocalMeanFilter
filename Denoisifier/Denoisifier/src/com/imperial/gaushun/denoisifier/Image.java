@@ -1,15 +1,17 @@
 package com.imperial.gaushun.denoisifier;
 
-import java.util.ArrayList;
+import java.awt.image.BufferedImage;
 import java.io.*;
+import javax.imageio.ImageIO;
+
+//Currently loads an image (line 13) and then copies it as a PNG (line 14).
 
 public class Image {
 	public static void main(String[] args) {
-		Console console = System.console();
-		String planet = console.readLine("\nEnter your favourite planet: ");
-		ArrayList planetList = new ArrayList();
-		planetList.add(planet);
-		planetList.add("Gliese 581 c");
-		System.out.println("\nTwo cool planets: " + planetList);
+		BufferedImage img = null;
+		try {
+		    img = ImageIO.read(new File("C:\\Users\\Gautam\\Desktop\\test.jpg"));
+		    ImageIO.write(img, "png", new File("C:\\Users\\Gautam\\Desktop\\test_copy.png"));
+		} catch (IOException e) {}
 	}
-}
+};
