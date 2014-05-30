@@ -13,13 +13,15 @@ import javax.imageio.*;
 public class Image {
 	public static void main(String[] args) {
 		try {
-			BufferedImage img = ImageIO.read(new File("C:\\Users\\Gautam\\Desktop\\test.jpg"));
-		    Random rnd = new Random();
+			BufferedImage img = ImageIO.read(new File(args[0]));
+			System.out.println("Loading the image at " + args[0] + "\\...");
+		    Random rnd = new Random(System.currentTimeMillis());
 		    
 		    int wImg = img.getWidth();
 		    int hImg = img.getHeight();
 		    int x,y,RGB,col;
 		    
+		    System.out.println("Applying noise...");
 		    for(int i=0;i<=(wImg*hImg)/4;i++){
 			    x = rnd.nextInt(wImg);
 			    y = rnd.nextInt(hImg);
@@ -28,7 +30,10 @@ public class Image {
 			    img.setRGB(x,y,RGB);
 		    }
 		    
-		    ImageIO.write(img, "png", new File("C:\\Users\\Gautam\\Desktop\\test_copy.png"));
-		} catch (IOException e) {}
+		    System.out.println("Saving modified image to " + args[0]+".copy.png" + "\\...");
+		    ImageIO.write(img, "png", new File(args[0]+".copy.png"));
+		} catch (IOException e) {
+			System.out.println("Input/Output Error. Check filepaths.");
+		}
 	}
 };
