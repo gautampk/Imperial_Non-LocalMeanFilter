@@ -14,6 +14,8 @@ import javax.imageio.*;
 //**> cd bin
 //**> java com.imperial.gaushun.denoisifier.Image "/path/to/image"
 
+//TODO: Denoised image is very dark.
+
 public class Image {
 	public static void main(String[] args) {
 		try {
