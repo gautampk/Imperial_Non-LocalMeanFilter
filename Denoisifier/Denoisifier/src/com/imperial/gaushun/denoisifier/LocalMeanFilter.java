@@ -29,8 +29,8 @@ public class LocalMeanFilter {
 					break;
 				}
 				
-				for(int n=-1*span;n<=span;n++){
-					for(int m=-1*span;m<=span;m++){
+				for(int n=-1*span;n<span;n++){
+					for(int m=-1*span;m<span;m++){
 						meanRGB[0] += img.getRed(i+m,j+n);
 						meanRGB[1] += img.getGreen(i+m,j+n);
 						meanRGB[2] += img.getBlue(i+m,j+n);

@@ -4,7 +4,7 @@ public class Main {
 	public static void main(String[] args){
 		Image origImg = new Image(args[0]);
 		Image noiseImg = origImg;
-		Noisifier noiseGen = new Noisifier(0.25,true);
+		Noisifier noiseGen = new Noisifier(0.05,false);
 		LocalMeanFilter lmfGen = new LocalMeanFilter(5);
 		
 		noiseGen.addNoise(noiseImg);
