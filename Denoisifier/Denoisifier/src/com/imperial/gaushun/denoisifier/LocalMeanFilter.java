@@ -25,7 +25,7 @@ public class LocalMeanFilter {
 		for(int i=span;i<img.width;i+=grpSize){
 			for(int j=span;j<img.height;j+=grpSize){
 				meanRGB[0] = 0; meanRGB[1] = 0; meanRGB[2] = 0;
-				if(i>img.width || j>img.height){
+				if(i+span>img.width || j+span>img.height){
 					break;
 				}
 				
