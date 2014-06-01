@@ -2,23 +2,22 @@ package com.imperial.gaushun.denoisifier;
 
 public class Main {
 	public static void main(String[] args){
-		Image noiseImg = new Image(args[0]);
+		Image nlmfImg = new Image(args[0]);
 		Image greyImg = new Image(args[0]);
-		Noisifier noiseGen = new Noisifier(0.05,false);
-		LocalMeanFilter lmfGen = new LocalMeanFilter(5);
-		NonLocalMeanFilter nlmfGen = new NonLocalMeanFilter();
+	
+		Noisifier noiseGen = new Noisifier(0.1,50,false);
+		LocalMeanFilter lmfGen = new LocalMeanFilter(3);
+		NonLocalMeanFilter nlmfGen = new NonLocalMeanFilter(1);
 		GreyMaker greyGen = new GreyMaker();
 		
-		noiseGen.addNoise(noiseImg);
-		noiseImg.saveImg("png", args[0]+".noise.png");
-		
+		greyGen.filter(nlmfImg);
 		greyGen.filter(greyImg);
 		greyImg.saveImg("png", args[0]+".grey.png");
 		
-		lmfGen.filter(noiseImg);
-		noiseImg.saveImg("png", args[0]+".lmf.png");
+		noiseGen.addNoise(nlmfImg);
+		nlmfImg.saveImg("png", args[0]+".noise.png");
 		
-		nlmfGen.filter(noiseImg);
-		noiseImg.saveImg("png", args[0]+".nlmf.png");
+		nlmfGen.filter(nlmfImg);
+		nlmfImg.saveImg("png", args[0]+".nlmf.png");
 	}
 }
