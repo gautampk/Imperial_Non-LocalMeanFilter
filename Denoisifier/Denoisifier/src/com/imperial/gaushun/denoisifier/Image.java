@@ -5,15 +5,6 @@ import java.awt.image.BufferedImage;
 import java.io.*;
 import javax.imageio.*;
 
-//Currently loads an image (line 13) and then copies it as a PNG (line 14).
-//Now generates noise and applies it to the image (demonstrate pixel-by-pixel editing).
-//Need to supply command line option now:
-//**> cd /path/to/download/folder
-//**> cd bin
-//**> java com.imperial.gaushun.denoisifier.Image "/path/to/image"
-
-//TODO: Denoised image is very dark.
-
 public class Image {
 	//Fields
 	public int height;
