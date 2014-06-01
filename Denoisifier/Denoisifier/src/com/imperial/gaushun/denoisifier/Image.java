@@ -11,7 +11,12 @@ public class Image {
 	public int width;
 	public BufferedImage img;
 	
-	//Constructor
+	//Constructors
+	public Image() {
+		img = new BufferedImage(0,0,1);
+		width = img.getWidth();
+		height = img.getHeight();
+	}
 	public Image(String filePath) {
 		try {
 			img = ImageIO.read(new File(filePath));
