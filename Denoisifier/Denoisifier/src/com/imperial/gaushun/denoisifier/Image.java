@@ -4,7 +4,6 @@ import java.awt.Color;
 import java.awt.image.BufferedImage;
 import java.io.*;
 import java.util.Random;
-
 import javax.imageio.*;
 
 //Currently loads an image (line 13) and then copies it as a PNG (line 14).
@@ -28,7 +27,7 @@ public class Image {
 		    int x,y,RGB,col;
 		    
 		    System.out.println("Applying noise ...");
-		    for(int i=0;i<=(wImg*hImg)/1.2;i++){
+		    for(int i=0;i<=(wImg*hImg)/9;i++){
 			    x = rnd.nextInt(wImg);
 			    y = rnd.nextInt(hImg);
 			    col = rnd.nextInt(256);
