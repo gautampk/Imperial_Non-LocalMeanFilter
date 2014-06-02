@@ -17,6 +17,9 @@ public class NonLocalMeanFilter {
         
         for(int n=-1*span;n<span;n++){
 			for(int m=-1*span;m<span;m++){
+				if(x+m > img.width || y+n > img.height || x+m < 0 || y+n < 0){
+					break;
+				}
 				localGrey += (img.getRed(x+m,y+n) + img.getBlue(x+m,y+n) + img.getGreen(x+m,y+n))/3;
 			}
 		}

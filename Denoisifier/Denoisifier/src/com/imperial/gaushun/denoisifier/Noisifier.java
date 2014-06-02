@@ -54,8 +54,20 @@ public class Noisifier {
 				img.setGreen(x,y,g);
 				img.setBlue(x,y,b);
 			}else if(bw == true){
-				col = rg.nextInt(256);
-				img.setRGB(rg.nextInt(img.width),rg.nextInt(img.height),rgb);
+				x = rg.nextInt(img.width);
+				y = rg.nextInt(img.height);
+				
+				r = (img.getRed(x,y) + img.getBlue(x,y) + img.getGreen(x,y))/3 + ((rg.nextInt(2*diff))-diff);
+				
+				if(r > 255){
+					r = 255;
+				}else if(r < 0){
+					r = 0;
+				}
+				
+				img.setRed(x,y,r);
+				img.setGreen(x,y,r);
+				img.setBlue(x,y,r);
 			}
 		}
 	}

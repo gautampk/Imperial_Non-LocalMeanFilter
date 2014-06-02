@@ -7,16 +7,16 @@ public class Main {
 	
 		Noisifier noiseGen = new Noisifier(0.3,50,true);
 		LocalMeanFilter lmfGen = new LocalMeanFilter(3);
-		NonLocalMeanFilter nlmfGen = new NonLocalMeanFilter(1,1);
+		NonLocalMeanFilter nlmfGen = new NonLocalMeanFilter(3,1);
 		GreyMaker greyGen = new GreyMaker();
 		
 		greyGen.filter(greyImg);
 		greyGen.filter(nlmfImg);
 		greyImg.saveImg("png", args[0]+".grey.png");
 		
-		noiseGen.addNoise(greyImg);
+		/*noiseGen.addNoise(greyImg);
 		greyGen.filter(nlmfImg);
-		greyImg.saveImg("png", args[0]+".noise.png");
+		greyImg.saveImg("png", args[0]+".noise.png");*/
 		
 		nlmfGen.filter(greyImg,nlmfImg);
 		nlmfImg.saveImg("png", args[0]+".nlmf.png");
