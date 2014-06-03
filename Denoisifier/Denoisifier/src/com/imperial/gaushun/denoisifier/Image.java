@@ -17,6 +17,11 @@ public class Image {
 		width = img.getWidth();
 		height = img.getHeight();
 	}
+	public Image(int width, int height) {
+		img = new BufferedImage(width,height,1);
+		width = img.getWidth();
+		height = img.getHeight();
+	}
 	public Image(String filePath) {
 		try {
 			img = ImageIO.read(new File(filePath));
